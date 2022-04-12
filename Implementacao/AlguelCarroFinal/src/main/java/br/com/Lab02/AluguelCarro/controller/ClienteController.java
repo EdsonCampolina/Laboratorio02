@@ -37,7 +37,7 @@ public class ClienteController {
 	@PostMapping("/clientes")
 	public String create(Cliente cliente) {
 		this.clienteRepository.save(cliente);
-		return "redirect:/clientes";
+		return "login";
 	}
 
 	@GetMapping("/clientes/{id}")

@@ -1,0 +1,51 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+</head>
+
+<body>
+	<div style="margin-top:70px;margin-left:100px;border-style: solid;padding:50px" class="container">
+		<div class="row">
+			<form action="/contrato/" method="POST">
+				<div class="mb-3">
+					<label class="form-label">Contrato no crédito</label>
+					<input type="checkbox" id="isCredito" name="isCredito">
+
+				</div>
+				<div class="mb-3">
+					<label class="form-label">Concedido por:</label>
+					<input class="form-control" type="text" name="concedidoPor">
+				</div>
+				<div class="mb-3">
+					<label for="cars">Automovel:</label>
+					<select name="automovel" id="automovel">
+						<option th:each="auto : ${autos}" th:value="${auto.id}" th:text="${auto.placa}"></option>
+					</select>
+				</div>
+				<div class="mb-3">
+					<label for="cars">Agentes:</label>
+					<select name="agente" id="agente">
+						<option th:each="agente : ${agentes}" th:value="${agente.id}" th:text="${agente.nome}"></option>
+					</select>
+				</div>
+				<div hidden class="mb-3">
+					<label class="form-label">Id</label>
+					<input class="form-control" type="text" th:field="*{cliente.id}" name="id">
+				</div>
+				<button class="btn btn-primary" type="submit">Submeter</button>
+			</form>
+		</div>
+	</div>
+
+
+
+	<!-- Option 1: Bootstrap Bundle with Popper -->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+		crossorigin="anonymous"></script>
+</body>
+
+</html>
